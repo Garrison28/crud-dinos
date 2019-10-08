@@ -7,6 +7,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
 app.use(express.static('static'));
+app.use(express.urlencoded({extended: false}));
 
 app.get('/', function(req, res) {
     res.render('home');

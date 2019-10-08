@@ -8,6 +8,14 @@ router.get('/', function(req, res) {
     res.render('dinosaurs/index', {dinos: dinoData});
 });
 
+router.post('/', function(req, res) {
+    var dinos = fs.readFileSync('./dinosaurs.json');
+    var dinoData = JSON.parse(dinos);
+    dinoData.push(req.body);
+    fs.writeFileSync('./dinosaurs.json', JSON.stringify(dinoData));
+    res.redirect('/dinosaurs');
+})
+
 router.get('/new', function(req, res) {
     res.render('dinosaurs/new');
 })
