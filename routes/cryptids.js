@@ -21,7 +21,16 @@ router.get('/edit/:id', function(req, res) {
     var crypts = fs.readFileSync('./cryptids.json');
     var cryptData = JSON.parse(crypts);
     res.render('cryptids/edit', {crypt: cryptData[index], cryptData: index})
-})
+});
+
+router.put('/:id', function (req, res) {
+    var index = parseInt(req.params.id);
+    var crypts = fs.readFileSync('./cryptids.json');
+    var cryptData = JSON.parse(crypts);
+    cryptData[index] = req.body;
+    fs.writeFileSync('./cryptids.json', JSON.stringify(cryptData));
+    res.redirect(`/cryptids/${index}`);
+});
 
 
 router.get('/new', function(req, res) {

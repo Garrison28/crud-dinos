@@ -1,5 +1,7 @@
 <ul>
     <% crypts.forEach(function(crypt, id) { %>
-        <li><a href="/cryptids/<%= id %>"><%= crypt.name %></a> is a <%= crypt.type %></li>
+        <li><a href="/cryptids/<%= id %>"><%= crypt.name %></a> is a <%= crypt.type %>
+            <a href="/cryptids/edit/<%= id %>">Edit Cryptid</a>
+        </li>
     <% }); %>
 </ul>

@@ -1,13 +1,5 @@
 [
     {
-        "name": "Littlefoot",
-        "type": "apatosaurus"
-    },
-    {
-        "name": "Cera",
-        "type": "triceratops"
-    },
-    {
         "name": "Ducky",
         "type": "saurolophus"
     },
@@ -18,21 +10,5 @@
     {
         "name": "Spike",
         "type": "stegosaurus"
-    },
-    {
-        "name": "Steve",
-        "type": "radosauris"
-    },
-    {
-        "name": "madison",
-        "type": "radosauros"
-    },
-    {
-        "name": "troll",
-        "type": "trollosauris"
-    },
-    {
-        "name": "Peter Murphy",
-        "type": "Gothosaur"
     }
 ]
