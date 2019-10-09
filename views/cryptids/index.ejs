@@ -3,5 +3,8 @@
         <li><a href="/cryptids/<%= id %>"><%= crypt.name %></a> is a <%= crypt.type %>
             <a href="/cryptids/edit/<%= id %>">Edit Cryptid</a>
         </li>
+        <form method="POST" action="/cryptids/<%= id %>/?_DELETE">
+            <input type="submit" value="X">
+        </form>
     <% }); %>
 </ul>

@@ -17,10 +17,10 @@ router.post('/', function(req, res) {
 });
 
 router.get('/edit/:id', function(req, res) {
-    var index = parseInt(eq.params.id);
+    var index = parseInt(req.params.id);
     var crypts = fs.readFileSync('./cryptids.json');
     var cryptData = JSON.parse(crypts);
-    res.render('cryptids/edit', {crypt: cryptData[index], cryptData: index})
+    res.render('cryptids/edit', {crypt: cryptData[index], cryptIndex: index})
 });
 
 router.put('/:id', function (req, res) {
@@ -30,6 +30,15 @@ router.put('/:id', function (req, res) {
     cryptData[index] = req.body;
     fs.writeFileSync('./cryptids.json', JSON.stringify(cryptData));
     res.redirect(`/cryptids/${index}`);
+});
+
+router.delete('/:id', function(req, res) {
+    var index = parseInt(req.params.id);
+    var crypts = fs.readFileSync('./cryptids.json');
+    var cryptData = JSON.parse(crypts);
+    cryptData.splice(index, 1);
+    fs.writeFileSync('./cryptids.json', JSON.stringify(cryptData));
+    res.redirect('/cryptids');
 });
 
 
